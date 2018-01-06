@@ -1,0 +1,40 @@
+{
+    "name": "asab/fcm-push",
+    "description": "Helper Package for Sending Push Notification via Firebase Cloud Messaging",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "fcm",
+        "push",
+        "push-notification",
+        "firebase-cloud-messaging",
+        "firebase-push-notification"
+    ],
+    "homepage": "https://github.com/Sab94/FCMPush",
+    "authors": [
+        {
+            "name": "asab",
+            "email": "asabya@gmail.com",
+            "homepage": "https://sab94.github.io/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Sab94\\FCMPush\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sab94\\FCMPush\\FCMPushServiceProvider"
+            ],
+            "aliases": {
+                "Msg91": "Sab94\\FCMPush\\FCMPushFacade"
+            }
+        }
+    }
+}
