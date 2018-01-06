@@ -1,24 +1,24 @@
-## Msg91Helper
+## FCMPush
 
 # Installation
 
 Require this package in your `composer.json` and update composer. This will download the package and PHPExcel of PHPOffice.
 
 ```php
-composer require "asab/msg91-helper:~1.1"
+composer require "asab/fcm-push"
 ```
 
 
 After updating composer, add the ServiceProvider to the providers array in `config/app.php`
 
 ```php
-Sab94\Msg91Helper\Msg91HelperServiceProvider::class
+Sab94\FCMPush\FCMPushServiceProvider::class
 ```
 
 You can use the facade for shorter code; if using Laravel 5.4 or lower, add this to your aliases:
 
 ```php
-'Msg91' => Sab94\Msg91Helper\Msg91HelperFacade::class,
+'FCMPush' => Sab94\FCMPush\FCMPushFacade::class
 ```
 
 To publish the config settings in Laravel 5 use:
@@ -27,26 +27,28 @@ To publish the config settings in Laravel 5 use:
 php artisan vendor:publish
 ```
 
-This will add an `msg91.php` config file to your config folder.
+This will add an `push.php` config file to your config folder.
 
 # Usage
-This package offers a an `msg91.php` config file to your config folder.
+This package offers a an `push.php` config file to your config folder.
 
-You can add your Msg91 AuthKey there. You can find your AuthKet at your Msg91 Dashboard
+You can add your FCM Authorization Key there. You can find your AuthKet at your Firebase Dashboard
 
 To use it in your code simply import 
 ```php
-use Sab94\Msg91Helper\Msg91Helper;
+use Sab94\FCMPush\FCMPush;
 ```
 and to sent sms call this function
 ```php
-Msg91Helper::sendSMS('My first sms','YOUR_PHONE_NUMBER');
+FCMPush::sendPush($tokens,'My first Push Notification');
 ```
-For more configurations please refer to the `msg91.php` file
+P.S. `$tokens` must be an array of fcm tokens
+
+For more configurations please refer to the `push.php` file
 
 # Support
 
-Support only through Github. Please don't mail us about issues, make a Github issue instead.
+Support only through Github. Please don't mail about issues, make a Github issue instead.
 
 # License
 
