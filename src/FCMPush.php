@@ -4,13 +4,17 @@ namespace Sab94\FCMPush;
 
 class FCMPush
 {
-    public static function sendPush($tokens, $message)
+    public static function sendPush($tokens, $message, $additionalData = [])
     {
         $url = config('push.url');
-        $fields = json_encode([
+        $fields = [
             'registration_ids' => $tokens,
             'data' => ['body' => $message],
-        ]);
+        ];
+        if (! empty($additionalData) && is_array($additionalData)) {
+            $fields['data'] = array_merge($fields['data'], $additionalData);
+        }
+        $fields = json_encode($fields);
         $headers = [
             'Authorization:key = '.config('push.authorization:key'),
             'Content-Type: '.config('push.content-type'),
