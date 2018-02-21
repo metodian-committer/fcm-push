@@ -1,5 +1,5 @@
 {
-    "name": "asab/fcm-push",
+    "name": "metodian-committer/fcm-push",
     "description": "Helper Package for Sending Push Notification via Firebase Cloud Messaging",
     "license": "MIT",
     "keywords": [
